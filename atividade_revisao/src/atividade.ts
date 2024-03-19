@@ -35,12 +35,12 @@ class Funcionario {
     setCargo(cargo: string): void{
         this.cargo = cargo;
     }
-    mostrarDados(){
+    mostrarDados(): void{
         console.log('(-----Dados do Funcionario-----)');
         console.log(`Nome: ${this.nome}`);
         console.log(`Cargo: ${this.cargo}`);
         console.log(`Matrícula: ${this.matricula}`);
-        console.log(`CPF: ${getCpf()}`);
+        console.log(`CPF: ${this.cpf}`);
         if (this.genero) {
             console.log(`Gênero: ${this.genero}`);
         }
@@ -71,8 +71,8 @@ class Equipe {
     mostrarDados(){
         console.log('(-----Dados da Equipe-----)');
         console.log(`Equipe: ${this.nome_equipe}`) ;
-        console.log(`Responsável: ${this.gestor_equipe}`);
-        console.log(`Componentes: ${this.componente1}, ${this.componente2}, ${this.componente3}`);
+        console.log(`Responsável: ${funcionario1.nome}`);
+        console.log(`Componentes: ${funcionario2.nome}, ${funcionario3.nome}, ${funcionario4.nome}`);
         console.log('---------------------------');
     }
 }
@@ -101,7 +101,7 @@ class Projeto {
         console.log(`Data de Início: ${this.data_inicio}`);
         console.log(`Data de Término: ${this.data_termino}`);
         console.log(`Status: ${this.status}`);
-        console.log(`Equipe: ${this.equipe}`);
+        console.log(`Equipe: ${equipe1.nome_equipe}`);
     }
 }
 const projeto1 = new Projeto('Projeto Marketing','Este projeto está focado na produção e desenvolvmento do marketing digital da empresa (empresax).',new Date('2024-03-18'),new Date('2025-03-18'),'em andamento',equipe1)
@@ -123,16 +123,21 @@ class Tarefa {
         this.status_tarefa = status_tarefa;
     }
     mostrarDados(){
-        console.log('(-------Tarefas-------');
+        console.log('(-------Tarefas-------)');
         console.log(`Terefa: ${this.nome_tarefa}`);
-        console.log(`Projeto: ${this.projeto}`);
-        console.log(`Responsável: ${this.responsavel}`);
+        console.log(`Projeto: ${projeto1.nome}`);
+        console.log(`Responsável: ${funcionario1.nome}`);
         console.log(`Status: ${this.status_tarefa}`);
         console.log(`Prazo: ${this.prazo}`);
         console.log(`Descrição: ${this.descricao_tarefa}`);
-        console.log('----------------------');
     }
 }
 const tarefa1 = new Tarefa(projeto1, 'Breafing com a empresa cliente.','A equipe responsável pela tarefa deve entrar em contato com os representantes da empresa cliente para efetuar o processo de Briefing para que tenhamos indicações sobre seus interesses.', funcionario1, new Date('2024-04-20'),'não iniciado.');
 
 funcionario1.mostrarDados()
+funcionario2.mostrarDados()
+funcionario3.mostrarDados()
+funcionario4.mostrarDados()
+equipe1.mostrarDados()
+projeto1.mostrarDados()
+tarefa1.mostrarDados()
